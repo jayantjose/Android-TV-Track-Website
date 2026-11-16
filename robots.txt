@@ -1,5 +1,71 @@
+# ==========================================
+# Robots.txt for TV Timer: Parental Control
+# Domain: https://tvviewer.icomtechnologies.in/
+# ==========================================
+
+# Default rule for all web crawlers
 User-agent: *
 Allow: /
 
-# Sitemap location
+# ------------------------------------------
+# AI Search & Chatbot Crawlers (AEO / GEO)
+# ------------------------------------------
+
+# OpenAI (ChatGPT live search, browsing & indexing)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic (Claude & Claude Web Browsing)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google (Gemini, AI Overviews & Search)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity AI (Perplexity Search & citations)
+User-agent: PerplexityBot
+Allow: /
+
+# Microsoft (Copilot & Bing AI)
+User-agent: Bingbot
+Allow: /
+
+# Apple (Apple Intelligence & Siri Web Answers)
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta (Meta AI)
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# DuckDuckGo AI Assist
+User-agent: DuckAssistBot
+Allow: /
+
+# ------------------------------------------
+# Sitemap Location
+# ------------------------------------------
 Sitemap: https://tvviewer.icomtechnologies.in/sitemap.xml
