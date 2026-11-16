@@ -8,6 +8,30 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Guide: How to Limit YouTube on Android TV -->
+  <url>
+    <loc>https://tvviewer.icomtechnologies.in/how-to-limit-youtube-screen-time-android-tv.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Guide: Set Daily App Limits on Google TV -->
+  <url>
+    <loc>https://tvviewer.icomtechnologies.in/how-to-set-daily-app-limits-google-tv.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Supported Devices & Setup Compatibility -->
+  <url>
+    <loc>https://tvviewer.icomtechnologies.in/supported-devices.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://tvviewer.icomtechnologies.in/privacy-policy.html</loc>
