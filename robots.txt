@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://tvviewer.icomtechnologies.in/sitemap.xml
