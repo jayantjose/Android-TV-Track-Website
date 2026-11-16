@@ -22,6 +22,7 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="theme-color" content="#0d1424">
 
+    <link rel="icon" type="image/png" href="img/app_icon_512.png">
     <link rel="canonical" href="https://tvviewer.icomtechnologies.in/how-to-limit-youtube-screen-time-android-tv.html">
 
     <!-- Open Graph / Facebook -->
@@ -135,6 +136,30 @@
               }
             }
           ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://tvviewer.icomtechnologies.in/how-to-limit-youtube-screen-time-android-tv.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://tvviewer.icomtechnologies.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Guides",
+              "item": "https://tvviewer.icomtechnologies.in/#guides"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "How to Limit YouTube on Android TV",
+              "item": "https://tvviewer.icomtechnologies.in/how-to-limit-youtube-screen-time-android-tv.html"
+            }
+          ]
         }
       ]
     }
@@ -201,6 +226,7 @@
             top: 0;
             background: rgba(9, 13, 22, 0.94);
             backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
         }
@@ -210,6 +236,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 14px 0;
+            position: relative;
         }
 
         .brand {
@@ -225,6 +252,53 @@
             width: 36px;
             height: 36px;
             border-radius: 8px;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: #ffffff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
         }
 
         .nav-links {
@@ -321,15 +395,24 @@
             margin-bottom: 10px;
         }
 
-        /* Comparison Table */
+        /* Comparison Table Responsive Container */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 28px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
         .comparison-table {
             width: 100%;
+            min-width: 520px;
             border-collapse: collapse;
-            margin: 32px 0;
             background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
+            margin: 0;
+            border: none;
         }
 
         .comparison-table th, .comparison-table td {
@@ -460,10 +543,59 @@
             flex-wrap: wrap;
         }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 1.9rem; }
-            .comparison-table { font-size: 0.9rem; }
+        @media (max-width: 860px) {
+            .container { padding: 0 20px; }
+            .menu-toggle { display: flex; }
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(13, 20, 36, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+                flex-direction: column;
+                padding: 20px 24px;
+                display: none;
+                z-index: 999;
+            }
+            .nav-menu.active { display: flex; }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 14px;
+                text-align: center;
+            }
+            .nav-links li { width: 100%; }
+            .nav-links a {
+                font-size: 1.05rem;
+                padding: 10px 0;
+                display: block;
+                width: 100%;
+            }
+            .btn-nav {
+                width: 100%;
+                max-width: 280px;
+                margin: 6px auto 0;
+                padding: 12px 0 !important;
+                display: block;
+            }
+            h1 { font-size: 2rem; }
             .cta-banner { padding: 24px; }
+            .btn-primary { width: 100%; justify-content: center; max-width: 340px; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            h1 { font-size: 1.65rem; line-height: 1.25; }
+            .lead { font-size: 1rem; }
+            h2 { font-size: 1.35rem; }
+            h3 { font-size: 1.1rem; }
+            p, ul, ol { font-size: 0.98rem; }
+            .step-card { padding: 18px; }
+            .callout { padding: 16px; }
         }
     </style>
 </head>
@@ -472,15 +604,24 @@
     <header>
         <div class="container nav-wrap">
             <a href="index.html" class="brand">
-                <img src="img/app_icon_512.png" alt="TV Timer Logo">
+                <img src="img/app_icon_512.png" alt="TV Timer Logo" width="36" height="36">
                 <span>TV Timer</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html#features">Features</a></li>
-                <li><a href="supported-devices.html">Devices</a></li>
-                <li><a href="index.html#faq">FAQ</a></li>
-                <li><a href="https://play.google.com/store/apps/details?id=com.tvtimer.parentalcontrol" target="_blank" rel="noopener" class="btn-nav">Download Free</a></li>
-            </ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="how-to-limit-youtube-screen-time-android-tv.html">YouTube Guide</a></li>
+                    <li><a href="how-to-set-daily-app-limits-google-tv.html">App Limits</a></li>
+                    <li><a href="supported-devices.html">Devices</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.tvtimer.parentalcontrol" target="_blank" rel="noopener" class="btn-nav">Download Free</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -512,42 +653,44 @@
                 <li><strong>Parental Constant Monitoring:</strong> Parents are forced to check the clock, walk into the living room, and physically turn off the television—leading to arguments and tantrums.</li>
             </ul>
 
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Built-in TV Controls</th>
-                        <th>TV Timer: Parental Control</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Per-App Daily Quota (e.g. YouTube only)</strong></td>
-                        <td>❌ No (whole TV only)</td>
-                        <td>✅ Yes (custom per app)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Continuous Viewing Breaks (Eye strain)</strong></td>
-                        <td>❌ Not supported</td>
-                        <td>✅ Yes (e.g. 15m rest every 45m)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>TV Remote D-Pad PIN Pad</strong></td>
-                        <td>⚠️ Clunky virtual keyboard</td>
-                        <td>✅ Dedicated 4-direction TV PIN</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Adult Bypass Schedule (Free Hours)</strong></td>
-                        <td>❌ Manual profile switching</td>
-                        <td>✅ Automated schedule</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Cost & Privacy</strong></td>
-                        <td>Requires Google Account login</td>
-                        <td>100% Free, zero ads, offline</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Built-in TV Controls</th>
+                            <th>TV Timer: Parental Control</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Per-App Daily Quota (e.g. YouTube only)</strong></td>
+                            <td>❌ No (whole TV only)</td>
+                            <td>✅ Yes (custom per app)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Continuous Viewing Breaks (Eye strain)</strong></td>
+                            <td>❌ Not supported</td>
+                            <td>✅ Yes (e.g. 15m rest every 45m)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TV Remote D-Pad PIN Pad</strong></td>
+                            <td>⚠️ Clunky virtual keyboard</td>
+                            <td>✅ Dedicated 4-direction TV PIN</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adult Bypass Schedule (Free Hours)</strong></td>
+                            <td>❌ Manual profile switching</td>
+                            <td>✅ Automated schedule</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cost & Privacy</strong></td>
+                            <td>Requires Google Account login</td>
+                            <td>100% Free, zero ads, offline</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <h2>Step-by-Step: How to Restrict YouTube in 3 Minutes</h2>
             <p>
@@ -648,5 +791,23 @@
             <p style="margin-top: 6px; font-size: 0.8rem; color: #64748b;">YouTube and Android TV are trademarks of Google LLC.</p>
         </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
+            });
+        }
+    </script>
 </body>
 </html>

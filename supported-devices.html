@@ -19,9 +19,10 @@
     <meta name="description" content="View device compatibility and setup guide for TV Timer on Android TV and Google TV devices: Xiaomi Mi TV, Chromecast with Google TV, Sony Bravia, TCL, OnePlus TV, and Nvidia Shield.">
     <meta name="keywords" content="Android TV parental control compatible devices, Mi TV screen timer, Chromecast Google TV parental controls, Sony Bravia app timer, TCL Android TV parental lock">
     <meta name="author" content="TV Timer Parental Control Team">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="theme-color" content="#0d1424">
 
+    <link rel="icon" type="image/png" href="img/app_icon_512.png">
     <link rel="canonical" href="https://tvviewer.icomtechnologies.in/supported-devices.html">
 
     <!-- Open Graph / Facebook -->
@@ -30,6 +31,57 @@
     <meta property="og:title" content="Supported Devices & Compatibility - TV Timer Parental Control">
     <meta property="og:description" content="Check if your Smart TV or streaming box is compatible with TV Timer: Parental Control.">
     <meta property="og:image" content="img/feature_graphic_1024x500.png">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tvviewer.icomtechnologies.in/supported-devices.html">
+    <meta property="twitter:title" content="Supported Devices & Compatibility - TV Timer Parental Control">
+    <meta property="twitter:description" content="Check if your Smart TV or streaming box is compatible with TV Timer: Parental Control.">
+    <meta property="twitter:image" content="img/feature_graphic_1024x500.png">
+
+    <!-- JSON-LD: ItemPage, BreadcrumbList & SoftwareApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ItemPage",
+          "@id": "https://tvviewer.icomtechnologies.in/supported-devices.html#webpage",
+          "name": "Supported Devices & Compatibility - TV Timer Parental Control",
+          "description": "Compatibility list for TV Timer on Android TV and Google TV smart televisions and streaming boxes.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://tvviewer.icomtechnologies.in/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Supported Devices",
+                "item": "https://tvviewer.icomtechnologies.in/supported-devices.html"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://tvviewer.icomtechnologies.in/#software",
+          "name": "TV Timer: Parental Control",
+          "operatingSystem": "Android TV 7.0+, Google TV",
+          "applicationCategory": "ParentalControlApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
 
     <style>
         :root {
@@ -72,11 +124,13 @@
             padding: 0 24px;
         }
 
+        /* Header / Nav */
         header {
             position: sticky;
             top: 0;
             background: rgba(9, 13, 22, 0.94);
             backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
         }
@@ -86,6 +140,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 14px 0;
+            position: relative;
         }
 
         .brand {
@@ -101,6 +156,53 @@
             width: 36px;
             height: 36px;
             border-radius: 8px;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: #ffffff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
         }
 
         .nav-links {
@@ -257,21 +359,93 @@
             margin-bottom: 16px;
             flex-wrap: wrap;
         }
+
+        @media (max-width: 860px) {
+            .container { padding: 0 20px; }
+            .menu-toggle { display: flex; }
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(13, 20, 36, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+                flex-direction: column;
+                padding: 20px 24px;
+                display: none;
+                z-index: 999;
+            }
+            .nav-menu.active { display: flex; }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 14px;
+                text-align: center;
+            }
+            .nav-links li { width: 100%; }
+            .nav-links a {
+                font-size: 1.05rem;
+                padding: 10px 0;
+                display: block;
+                width: 100%;
+            }
+            .btn-nav {
+                width: 100%;
+                max-width: 280px;
+                margin: 6px auto 0;
+                padding: 12px 0 !important;
+                display: block;
+            }
+            h1 { font-size: 2rem; }
+            .cta-banner { padding: 24px; }
+            .btn-primary { width: 100%; justify-content: center; max-width: 340px; }
+        }
+
+        @media (max-width: 600px) {
+            .spec-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            h1 { font-size: 1.65rem; line-height: 1.25; }
+            .lead { font-size: 1rem; }
+            h2 { font-size: 1.35rem; }
+            h3 { font-size: 1.1rem; }
+            p { font-size: 0.95rem; }
+            .device-card { padding: 18px; }
+            .spec-list { padding: 18px; }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav-wrap">
             <a href="index.html" class="brand">
-                <img src="img/app_icon_512.png" alt="TV Timer Logo">
+                <img src="img/app_icon_512.png" alt="TV Timer Logo" width="36" height="36">
                 <span>TV Timer</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="how-to-limit-youtube-screen-time-android-tv.html">YouTube Guide</a></li>
-                <li><a href="how-to-set-daily-app-limits-google-tv.html">App Limits Guide</a></li>
-                <li><a href="https://play.google.com/store/apps/details?id=com.tvtimer.parentalcontrol" target="_blank" rel="noopener" class="btn-nav">Download Free</a></li>
-            </ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="how-to-limit-youtube-screen-time-android-tv.html">YouTube Guide</a></li>
+                    <li><a href="how-to-set-daily-app-limits-google-tv.html">App Limits</a></li>
+                    <li><a href="supported-devices.html">Devices</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.tvtimer.parentalcontrol" target="_blank" rel="noopener" class="btn-nav">Download Free</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -373,5 +547,23 @@
             <p style="margin-top: 6px; font-size: 0.8rem; color: #64748b;">All brand names, trademarks, and logos are properties of their respective holders.</p>
         </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
+            });
+        }
+    </script>
 </body>
 </html>
